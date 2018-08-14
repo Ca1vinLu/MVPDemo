@@ -23,7 +23,7 @@ public class HomeActivity extends AppCompatActivity implements IHomeContract.Vie
     private Button mLoginBtn;
 
 
-    private HomePresenter mPresenter;
+    private IHomeContract.Presenter mPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

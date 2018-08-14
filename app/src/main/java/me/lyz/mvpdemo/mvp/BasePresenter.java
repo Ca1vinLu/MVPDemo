@@ -1,22 +1,19 @@
 package me.lyz.mvpdemo.mvp;
 
+import java.lang.ref.WeakReference;
+
 /**
  * @author LYZ 2018.08.14
  */
 public abstract class BasePresenter<MvpView, MvpModel> {
-    private MvpView mMvpView;
-    private MvpModel mMvpModel;
+    private WeakReference<MvpView> mMvpView;
 
     public BasePresenter(MvpView view) {
-        mMvpView = view;
+        mMvpView = new WeakReference<>(view);
     }
 
     public MvpView getView() {
-        return mMvpView;
-    }
-
-    public void detachView() {
-        mMvpView = null;
+        return mMvpView.get();
     }
 
 }
